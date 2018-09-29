@@ -16,13 +16,11 @@ var App = {
     App.startSpinner();
     App.fetch(App.stopSpinner);
     
-    var messagesArr = App.fetch();
-    console.log(App.fetch());
-    var allMessages = '';
+    // var messagesArr = App.fetch();
+    // console.log(App.fetch());
+    // var allMessages = '';
     
-    for (var i = 0; i < messagesArr.length; i++) {
-      allMessages += MessagesView.renderMessage(messagesArr[i]);
-    } // fix this to be able to display all the messages
+    // fix this to be able to display all the messages
     
     $(".username").on( "click", Friends.toggleStatus); 
     $('#rooms').on( "click", Rooms.add); 
