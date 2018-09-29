@@ -17,6 +17,8 @@ var FormView = {
     };
 
     Parse.create(message);
+    // Parse.create(message, App.fetch.call(null, function(){console.log("lalala");}));
+    //App.fetch();
     console.log('click!');
   },
 

@@ -33,8 +33,11 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
-
-      callback(data.results);
+      for (var i = 0; i < data.results.length; i++) {
+        console.log(data.results[i]);
+        MessagesView.renderMessage(data.results[i]);
+      }
+      callback();  
     });
   },
 
