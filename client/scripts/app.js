@@ -34,7 +34,7 @@ var App = {
       // examine the response from the server request:
       console.log(data);
 
-      callback();
+      callback(data.results);
     });
   },
 
