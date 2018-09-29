@@ -4,9 +4,12 @@ var Parse = {
 
   create: function(message, successCB, errorCB = null) {
     // todo: save a message to the server
+    // debugger;
+    // console.log('message: ', message);
     $.ajax({
     // This is the url you should use to communicate with the parse API server.
-      url: 'http://parse.CAMPUS.hackreactor.com/chatterbox/classes/messages',
+      url: 'http://parse.sfm6.hackreactor.com/chatterbox/classes/messages',
+      // Access-Control-Allow-Credentials: true,
       type: 'POST',
       data: JSON.stringify(message),
       contentType: 'application/json',

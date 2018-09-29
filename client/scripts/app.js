@@ -3,6 +3,7 @@ var App = {
   $spinner: $('.spinner img'),
 
   username: 'anonymous',
+  roomname: 'smth', // fill this in 
 
   initialize: function() {
     App.username = window.location.search.substr(10);
@@ -14,9 +15,19 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
-    $(".username").on( "click", Friends.toggleStatus()); 
-    $('#rooms').on( "click", Rooms.add()); 
-    $('form .submit').on( "click", Parse.create()); 
+    
+    var messagesArr = App.fetch();
+    console.log(App.fetch());
+    var allMessages = '';
+    
+    for (var i = 0; i < messagesArr.length; i++) {
+      allMessages += MessagesView.renderMessage(messagesArr[i]);
+    } // fix this to be able to display all the messages
+    
+    $(".username").on( "click", Friends.toggleStatus); 
+    $('#rooms').on( "click", Rooms.add); 
+    // how do we actually submit message    
+    //$('form .submit').on( "submit", Parse.create; 
   },
 
 
