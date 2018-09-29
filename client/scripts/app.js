@@ -14,7 +14,7 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
-
+    $( ".username" ).on( "click", Friends.toggleStatus); 
   },
 
   fetch: function(callback = ()=>{}) {
