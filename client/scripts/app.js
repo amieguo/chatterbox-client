@@ -14,8 +14,11 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
-    $( ".username" ).on( "click", Friends.toggleStatus); 
+    $(".username").on( "click", Friends.toggleStatus()); 
+    $('#rooms').on( "click", Rooms.add()); 
+    $('form .submit').on( "click", Parse.create()); 
   },
+
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
