@@ -23,7 +23,7 @@ var App = {
     // fix this to be able to display all the messages
     
     $(".username").on( "click", Friends.toggleStatus); 
-    $('#rooms').on( "click", Rooms.add); 
+    $('#rooms').on( "submit", RoomsView.handleAdd); 
     // how do we actually submit message    
     //$('form .submit').on( "submit", Parse.create; 
   },

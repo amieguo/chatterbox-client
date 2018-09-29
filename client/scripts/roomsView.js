@@ -6,14 +6,23 @@ var RoomsView = {
   initialize: function() {
   },
 
-  renderRoom: function() {
+  renderRoom: function(roomName) {
     var room = _.template(`
-      <div class="room">
-        <div class="roomname"></div>
-      </div>
+      <option>${roomName}</option>
     `);
-    this.$select.append(room);
+    RoomsView.$select.append(room);
 
-  }
+  },
+
+  handleAdd: function(event) {
+    // Stop the browser from submitting the form
+    event.preventDefault();
+    const roomtext = $('#roomName').val();
+    console.log('roomtext: ', roomtext);
+    if (!Rooms.roomList.has(roomtext)) {
+      RoomsView.renderRoom(roomtext);
+    }
+    Rooms.add(roomtext);
+  },
 
 };
