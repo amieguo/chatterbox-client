@@ -1,9 +1,8 @@
 var App = {
 
   $spinner: $('.spinner img'),
-
   username: 'anonymous',
-  roomname: 'smth', // fill this in 
+  roomname: Rooms.currentRoom, 
 
   initialize: function() {
     App.username = window.location.search.substr(10);
@@ -23,9 +22,10 @@ var App = {
     // fix this to be able to display all the messages
     
     $(".username").on( "click", Friends.toggleStatus); 
-    $('#rooms').on( "submit", RoomsView.handleAdd); 
-    // how do we actually submit message    
-    //$('form .submit').on( "submit", Parse.create; 
+    $('#rooms').on( "submit", RoomsView.handleAdd);
+    $('.select').change(function () {
+      RoomsView.filter($( "select option:selected" ).text());
+    }); 
   },
 
 
@@ -33,6 +33,7 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
+      Messages.storage = data.results;
       for (var i = 0; i < data.results.length; i++) {
         console.log(data.results[i]);
         MessagesView.renderMessage(data.results[i]);

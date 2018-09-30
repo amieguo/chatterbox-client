@@ -24,5 +24,10 @@ var RoomsView = {
     }
     Rooms.add(roomtext);
   },
-
+  
+  filter: function(roomName) {
+    var selectRoom = _.filter(Messages.storage, function() { return Messages.roomname === roomName; });
+    $('#chats').html('');
+    //select the div that contains everything with id chats.html('')
+  }
 };

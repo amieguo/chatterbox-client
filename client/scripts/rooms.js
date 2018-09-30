@@ -1,5 +1,6 @@
 var Rooms = {
   roomList: new Set,
+  currentRoom: 'smth',
   
   add: function(newRoom) {
     Rooms.roomList.add(newRoom);
