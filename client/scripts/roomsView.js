@@ -26,8 +26,13 @@ var RoomsView = {
   },
   
   filter: function(roomName) {
-    var selectRoom = _.filter(Messages.storage, function() { return Messages.roomname === roomName; });
+    var selectRoom = _.filter(Messages.storage, function(msg) { return msg.roomname === roomName; });
     $('#chats').html('');
+    console.log(selectRoom);
+    for (var i = 0; i < selectRoom.length; i ++) {
+      MessagesView.renderMessage(selectRoom[i]);
+    }
+    
     //select the div that contains everything with id chats.html('')
   }
 };
